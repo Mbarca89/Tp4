@@ -5,6 +5,8 @@
  */
 package tp4.views;
 
+import javax.swing.JInternalFrame;
+
 /**
  *
  * @author Mauricio
@@ -27,6 +29,7 @@ public class Colegio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        escritorio = new javax.swing.JDesktopPane();
         barMainMenu = new javax.swing.JMenuBar();
         mnuAlumno = new javax.swing.JMenu();
         mniAgregarAlumno = new javax.swing.JMenuItem();
@@ -37,8 +40,20 @@ public class Colegio extends javax.swing.JFrame {
         mnuRegistro = new javax.swing.JMenu();
         mniInscripcionMateria = new javax.swing.JMenuItem();
         mnuSalir = new javax.swing.JMenu();
+        mniSalir = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        javax.swing.GroupLayout escritorioLayout = new javax.swing.GroupLayout(escritorio);
+        escritorio.setLayout(escritorioLayout);
+        escritorioLayout.setHorizontalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 1077, Short.MAX_VALUE)
+        );
+        escritorioLayout.setVerticalGroup(
+            escritorioLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 539, Short.MAX_VALUE)
+        );
 
         mnuAlumno.setText("Alumno");
 
@@ -73,11 +88,25 @@ public class Colegio extends javax.swing.JFrame {
         mnuRegistro.setText("Registro");
 
         mniInscripcionMateria.setText("Inscripcion a materia");
+        mniInscripcionMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniInscripcionMateriaActionPerformed(evt);
+            }
+        });
         mnuRegistro.add(mniInscripcionMateria);
 
         barMainMenu.add(mnuRegistro);
 
         mnuSalir.setText("Salir");
+
+        mniSalir.setText("Salir");
+        mniSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniSalirActionPerformed(evt);
+            }
+        });
+        mnuSalir.add(mniSalir);
+
         barMainMenu.add(mnuSalir);
 
         setJMenuBar(barMainMenu);
@@ -86,23 +115,49 @@ public class Colegio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1077, Short.MAX_VALUE)
+            .addComponent(escritorio)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 539, Short.MAX_VALUE)
+            .addComponent(escritorio)
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
     private void mniAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarAlumnoActionPerformed
         // TODO add your handling code here:
+        AgregarAlumno agregarAlumno = new AgregarAlumno();
+        abrirYCentrar(agregarAlumno);
     }//GEN-LAST:event_mniAgregarAlumnoActionPerformed
 
     private void mniAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarMateriaActionPerformed
         // TODO add your handling code here:
+        AgregarMateria agregarMateria = new AgregarMateria();
+        abrirYCentrar(agregarMateria);
     }//GEN-LAST:event_mniAgregarMateriaActionPerformed
+
+    private void mniInscripcionMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniInscripcionMateriaActionPerformed
+        // TODO add your handling code here:
+        InscripcionMateria inscripcion = new InscripcionMateria();
+        abrirYCentrar(inscripcion);
+    }//GEN-LAST:event_mniInscripcionMateriaActionPerformed
+
+    private void mniSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalirActionPerformed
+        // TODO add your handling code here:
+        int resp = javax.swing.JOptionPane.showConfirmDialog(
+        this,
+        "¿Seguro que quiere salir?",
+        "Salir",
+        javax.swing.JOptionPane.YES_NO_OPTION,
+        javax.swing.JOptionPane.QUESTION_MESSAGE
+        );
+        
+        if (resp == javax.swing.JOptionPane.YES_OPTION) {
+            dispose();
+        }
+    }//GEN-LAST:event_mniSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -138,14 +193,24 @@ public class Colegio extends javax.swing.JFrame {
             }
         });
     }
+    
+    private void abrirYCentrar(JInternalFrame frame) {
+        escritorio.add(frame);
+        frame.setVisible(true);
+        int x = (escritorio.getWidth() - frame.getWidth()) / 2;
+        int y = (escritorio.getHeight() - frame.getHeight()) / 2;
+        frame.setLocation(x, y);
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuBar barMainMenu;
+    private javax.swing.JDesktopPane escritorio;
     private javax.swing.JMenuItem mniAgregarAlumno;
     private javax.swing.JMenuItem mniAgregarMateria;
     private javax.swing.JMenuItem mniInscripcionMateria;
     private javax.swing.JMenuItem mniListarAlumnos;
     private javax.swing.JMenuItem mniListarMaterias;
+    private javax.swing.JMenuItem mniSalir;
     private javax.swing.JMenu mnuAlumno;
     private javax.swing.JMenu mnuMateria;
     private javax.swing.JMenu mnuRegistro;
