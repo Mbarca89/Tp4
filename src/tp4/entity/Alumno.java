@@ -37,7 +37,7 @@ public class Alumno {
     }
     
     public void agregarMateria(Materia m) {
-        if (null != m && !materias.contains(m))
+        if (null != m)
             materias.add(m);
     }
     
