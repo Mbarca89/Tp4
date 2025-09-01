@@ -6,6 +6,8 @@
 package tp4.views;
 
 import javax.swing.JInternalFrame;
+import tp4.entity.Alumno;
+import tp4.entity.Materia;
 
 /**
  *
@@ -17,8 +19,11 @@ public class Colegio extends javax.swing.JFrame {
      * Creates new form Colegio
      */
     public Colegio() {
-        initComponents();
+        initComponents();        
     }
+    
+    public static final java.util.Set<Alumno> SET_ALUMNOS = new java.util.HashSet<>();
+    public static final java.util.Set<Materia> SET_MATERIAS = new java.util.HashSet<>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -66,6 +71,11 @@ public class Colegio extends javax.swing.JFrame {
         mnuAlumno.add(mniAgregarAlumno);
 
         mniListarAlumnos.setText("Lista de alumnos");
+        mniListarAlumnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniListarAlumnosActionPerformed(evt);
+            }
+        });
         mnuAlumno.add(mniListarAlumnos);
 
         barMainMenu.add(mnuAlumno);
@@ -159,6 +169,12 @@ public class Colegio extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_mniSalirActionPerformed
 
+    private void mniListarAlumnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListarAlumnosActionPerformed
+        // TODO add your handling code here:
+        MostrarAlumnos mostrarAlumnos = new MostrarAlumnos(Colegio.SET_ALUMNOS);
+        abrirYCentrar(mostrarAlumnos);
+    }//GEN-LAST:event_mniListarAlumnosActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -168,6 +184,26 @@ public class Colegio extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
+        Materia web2 = new Materia(1, "Web 2", 2);
+        Materia mat1 = new Materia(2, "Matemáticas", 1);
+        Materia lab1 = new Materia(3, "Laboratorio 1", 1);
+        SET_MATERIAS.add(web2); SET_MATERIAS.add(mat1); SET_MATERIAS.add(lab1);
+
+        Alumno lopez = new Alumno(1001, "López", "Martin");
+        Alumno martinez = new Alumno(1002, "Martínez", "Brenda");
+        SET_ALUMNOS.add(lopez); SET_ALUMNOS.add(martinez);
+
+        lopez.agregarMateria(web2);
+        lopez.agregarMateria(mat1);
+        lopez.agregarMateria(lab1);
+
+        martinez.agregarMateria(web2);
+        martinez.agregarMateria(mat1);
+        martinez.agregarMateria(lab1);
+        martinez.agregarMateria(lab1);
+        
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -185,7 +221,7 @@ public class Colegio extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
