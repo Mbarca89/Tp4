@@ -140,7 +140,7 @@ public class Colegio extends javax.swing.JFrame {
 
     private void mniInscripcionMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniInscripcionMateriaActionPerformed
         // TODO add your handling code here:
-        InscripcionMateria inscripcion = new InscripcionMateria();
+        FormularioInscripcionMateria inscripcion = new FormularioInscripcionMateria();
         abrirYCentrar(inscripcion);
     }//GEN-LAST:event_mniInscripcionMateriaActionPerformed
 

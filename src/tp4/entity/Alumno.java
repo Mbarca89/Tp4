@@ -44,4 +44,5 @@ public class Alumno {
     public int cantidadMaterias() {
         return materias.size();
     }
+    
 }
