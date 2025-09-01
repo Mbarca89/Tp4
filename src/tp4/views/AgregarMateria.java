@@ -134,7 +134,74 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
 
     private void btnAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarMateriaActionPerformed
         // TODO add your handling code here:
-        Materia materia1=new Materia(Integer.parseInt(varCodigoMateria.getText()),varNombreMateria.getText(),Integer.parseInt(varAnioMateria.getText()));
+        String codStr = varCodigoMateria.getText().trim();
+        String nombre = varNombreMateria.getText().trim();
+        String anioStr = varAnioMateria.getText().trim();
+
+        if (codStr.isEmpty() || nombre.isEmpty() || anioStr.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Completá Código, Nombre y Año.",
+                    "Validación",
+                    javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+            return;
+        }
+
+        int codigo, anio;
+        try {
+            codigo = Integer.parseInt(codStr);
+            if (codigo <= 0) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Código inválido. Debe ser un entero positivo.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+        try {
+            anio = Integer.parseInt(anioStr);
+            if (anio <= 0) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Año inválido. Debe ser un entero positivo.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+        Materia materia = new Materia(codigo, nombre, anio);
+
+        boolean agregada = Colegio.SET_MATERIAS.add(materia);
+
+        if (agregada) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Materia agregada: " + materia.getIdMateria() + " - " + materia.getNombre() + " (Año " + materia.getAnio() + ")",
+                    "OK",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE
+            );
+            varCodigoMateria.setText("");
+            varNombreMateria.setText("");
+            varAnioMateria.setText("");
+            varCodigoMateria.requestFocus();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Ya existe una materia con ese código.",
+                    "Duplicado",
+                    javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+        }
     }//GEN-LAST:event_btnAgregarMateriaActionPerformed
 
 

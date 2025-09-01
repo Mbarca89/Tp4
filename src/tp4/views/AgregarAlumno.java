@@ -127,7 +127,60 @@ public class AgregarAlumno extends javax.swing.JInternalFrame {
 
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-        Alumno alumno1=new Alumno(Integer.parseInt(varLegajo.getText()),varApellido.getText(),varNombre.getText());
+        String legajoStr = varLegajo.getText().trim();
+        String apellido = varApellido.getText().trim();
+        String nombre = varNombre.getText().trim();
+
+        if (legajoStr.isEmpty() || apellido.isEmpty() || nombre.isEmpty()) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Completá Legajo, Apellido y Nombre.",
+                    "Validación",
+                    javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+            return;
+        }
+
+        int legajo;
+        try {
+            legajo = Integer.parseInt(legajoStr);
+            if (legajo <= 0) {
+                throw new NumberFormatException();
+            }
+        } catch (NumberFormatException ex) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Legajo inválido. Debe ser un entero positivo.",
+                    "Error",
+                    javax.swing.JOptionPane.ERROR_MESSAGE
+            );
+            return;
+        }
+
+        Alumno alumno = new Alumno(legajo, apellido, nombre);
+
+        boolean agregado = Colegio.SET_ALUMNOS.add(alumno);
+
+        if (agregado) {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Alumno agregado: " + alumno.getLegajo() + " - " + alumno.getApellido() + ", " + alumno.getNombre(),
+                    "OK",
+                    javax.swing.JOptionPane.INFORMATION_MESSAGE
+            );
+            // Limpiar campos
+            varLegajo.setText("");
+            varApellido.setText("");
+            varNombre.setText("");
+            varLegajo.requestFocus();
+        } else {
+            javax.swing.JOptionPane.showMessageDialog(
+                    this,
+                    "Ya existe un alumno con ese legajo.",
+                    "Duplicado",
+                    javax.swing.JOptionPane.WARNING_MESSAGE
+            );
+        }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
 

@@ -10,6 +10,7 @@ package tp4.entity;
  * @author Mauricio
  */
 public class Materia {
+
     private int idMateria;
     private String nombre;
     private int anio;
@@ -47,5 +48,27 @@ public class Materia {
         this.anio = anio;
     }
     
+    //Para evitar id de materias repetidos
     
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
+        Materia materia = (Materia) o;
+        return idMateria == materia.idMateria;
+    }
+
+    @Override
+    public int hashCode() {
+        return Integer.hashCode(idMateria);
+    }
+
+    @Override
+    public String toString() {
+        return idMateria + " - " + nombre + " (Año " + anio + ")";
+    }
 }
