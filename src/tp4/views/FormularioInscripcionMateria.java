@@ -1,6 +1,10 @@
 
 package tp4.views;
 
+import java.util.HashSet;
+import tp4.entity.Alumno;
+import tp4.entity.Materia;
+
 
 /**
  *
@@ -8,11 +12,16 @@ package tp4.views;
  */
 public class FormularioInscripcionMateria extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form InscripcionMateria
-     */
-    public FormularioInscripcionMateria() {
+    private HashSet<Alumno> alumnos;
+    private HashSet<Materia> materias;
+    
+    public FormularioInscripcionMateria(HashSet<Alumno> alumnos, HashSet<Materia> materias) {
         initComponents();
+        
+        this.alumnos = alumnos;
+        this.materias = materias;
+        
+    
     }
 
     
