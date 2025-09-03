@@ -36,12 +36,13 @@ public class Alumno {
         this.legajo = legajo;
     }
 
-    public void agregarMateria(Materia m) {
-        if (null != m) {
-            materias.add(m);
-        }
+  public void agregarMateria(Materia m) {
+    if (materias.add(m)) {
+        System.out.println(nombre + " se inscribió en " + m.getNombre());
+    } else {
+        System.out.println(nombre + " ya estaba inscripto en " + m.getNombre());
     }
-
+}
     public int cantidadMaterias() {
         return materias.size();
     }
