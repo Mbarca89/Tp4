@@ -8,7 +8,7 @@ package tp4.views;
 import tp4.entity.Materia;
 
 /**
- *
+ 
  * @author Mauricio
  */
 public class AgregarMateria extends javax.swing.JInternalFrame {
