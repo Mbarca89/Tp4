@@ -14,7 +14,7 @@ import tp4.entity.Materia;
 public class AgregarMateria extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form AgregarMateria
+      Creates new form AgregarMateria
      */
     public AgregarMateria() {
         initComponents();
