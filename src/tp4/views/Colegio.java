@@ -5,6 +5,7 @@
  */
 package tp4.views;
 
+import java.util.HashSet;
 import javax.swing.JInternalFrame;
 import tp4.entity.Alumno;
 import tp4.entity.Materia;
@@ -22,8 +23,8 @@ public class Colegio extends javax.swing.JFrame {
         initComponents();        
     }
     
-    public static final java.util.Set<Alumno> SET_ALUMNOS = new java.util.HashSet<>();
-    public static final java.util.Set<Materia> SET_MATERIAS = new java.util.HashSet<>();
+    public static final HashSet<Alumno> SET_ALUMNOS = new java.util.HashSet<>();
+    public static final HashSet<Materia> SET_MATERIAS = new java.util.HashSet<>();
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -138,13 +139,13 @@ public class Colegio extends javax.swing.JFrame {
 
     private void mniAgregarAlumnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarAlumnoActionPerformed
         // TODO add your handling code here:
-        AgregarAlumno agregarAlumno = new AgregarAlumno();
+        AgregarAlumno agregarAlumno = new AgregarAlumno(SET_ALUMNOS);
         abrirYCentrar(agregarAlumno);
     }//GEN-LAST:event_mniAgregarAlumnoActionPerformed
 
     private void mniAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniAgregarMateriaActionPerformed
         // TODO add your handling code here:
-        AgregarMateria agregarMateria = new AgregarMateria();
+        AgregarMateria agregarMateria = new AgregarMateria(SET_MATERIAS);
         abrirYCentrar(agregarMateria);
     }//GEN-LAST:event_mniAgregarMateriaActionPerformed
 
@@ -152,8 +153,8 @@ public class Colegio extends javax.swing.JFrame {
         // TODO add your handling code here:
       FormularioInscripcionMateria inscripcion =
         new FormularioInscripcionMateria(
-            new java.util.HashSet<>(Colegio.SET_ALUMNOS),
-            new java.util.HashSet<>(Colegio.SET_MATERIAS)
+            SET_ALUMNOS,
+            SET_MATERIAS
         );
     abrirYCentrar(inscripcion);
     }//GEN-LAST:event_mniInscripcionMateriaActionPerformed

@@ -5,9 +5,11 @@
  */
 package tp4.views;
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 import tp4.entity.Alumno;
 
 /**
@@ -19,13 +21,13 @@ public class MostrarAlumnos extends javax.swing.JInternalFrame {
     /**
      * Creates new form MostrarAlumnos
      */
-    private final Set<Alumno> alumnos;
+    private final HashSet<Alumno> alumnos;
 
-    public MostrarAlumnos(Set<Alumno> alumnos) {
+    public MostrarAlumnos(HashSet<Alumno> alumnos) {
         this.alumnos = alumnos;
-        initComponents();        // ✅ PRIMERO inicializamos los componentes
-        configurarTabla();       // ✅ Configuramos el modelo de la JTable
-        cargarTabla();           // ✅ Cargamos los datos
+        initComponents();       
+        configurarTabla();      
+        cargarTabla();          
     }
 
     /**
@@ -78,18 +80,18 @@ public class MostrarAlumnos extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void configurarTabla() {
-        javax.swing.table.DefaultTableModel model = new javax.swing.table.DefaultTableModel(
+        DefaultTableModel model = new DefaultTableModel(
             new Object[]{"Legajo", "Apellido", "Nombre", "Materias"}, 0
         ) {
             @Override public boolean isCellEditable(int row, int col) { return false; }
         };
-        tblAlumnos.setModel(model);              // ✅ sobre la JTable
-        tblAlumnos.setAutoCreateRowSorter(true); // ✅ ordenable por columnas
+        tblAlumnos.setModel(model);          
+        tblAlumnos.setAutoCreateRowSorter(true); 
     }
 
     private void cargarTabla() {
-        javax.swing.table.DefaultTableModel model =
-            (javax.swing.table.DefaultTableModel) tblAlumnos.getModel(); // ✅ JTable
+        DefaultTableModel model =
+            (DefaultTableModel) tblAlumnos.getModel(); 
 
         java.util.List<Alumno> lista = new java.util.ArrayList<>(alumnos);
         lista.sort(java.util.Comparator
@@ -99,10 +101,10 @@ public class MostrarAlumnos extends javax.swing.JInternalFrame {
         model.setRowCount(0);
         for (Alumno a : lista) {
             model.addRow(new Object[]{
-                a.getLegajo(),             // o a.getDni() si tu entidad usa eso
+                a.getLegajo(),       
                 a.getApellido(),
                 a.getNombre(),
-                a.cantidadMaterias()       // o a.getMaterias().size()
+                a.cantidadMaterias()    
             });
         }
     }

@@ -5,6 +5,10 @@
  */
 package tp4.views;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 import tp4.entity.Alumno;
 
 /**
@@ -13,10 +17,12 @@ import tp4.entity.Alumno;
  */
 public class AgregarAlumno extends javax.swing.JInternalFrame {
 
+     private final HashSet<Alumno> alumnos;
     /**
      * Creates new form AgregarAlumno
      */
-    public AgregarAlumno() {
+    public AgregarAlumno(HashSet<Alumno> alumnos) {
+        this.alumnos = alumnos;
         initComponents();
     }
 
@@ -159,7 +165,7 @@ public class AgregarAlumno extends javax.swing.JInternalFrame {
 
         Alumno alumno = new Alumno(legajo, apellido, nombre);
 
-        boolean agregado = Colegio.SET_ALUMNOS.add(alumno);
+        boolean agregado = alumnos.add(alumno);
 
         if (agregado) {
             javax.swing.JOptionPane.showMessageDialog(

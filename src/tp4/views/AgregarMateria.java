@@ -5,6 +5,7 @@
  */
 package tp4.views;
 
+import java.util.HashSet;
 import tp4.entity.Materia;
 
 /**
@@ -13,10 +14,13 @@ import tp4.entity.Materia;
  */
 public class AgregarMateria extends javax.swing.JInternalFrame {
 
+    private final HashSet<Materia> materias;
+    
     /**
       Creates new form AgregarMateria
      */
-    public AgregarMateria() {
+    public AgregarMateria(HashSet<Materia> materias) {
+        this.materias = materias;
         initComponents();
     }
 
@@ -181,7 +185,7 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
 
         Materia materia = new Materia(codigo, nombre, anio);
 
-        boolean agregada = Colegio.SET_MATERIAS.add(materia);
+        boolean agregada = materias.add(materia);
 
         if (agregada) {
             javax.swing.JOptionPane.showMessageDialog(
