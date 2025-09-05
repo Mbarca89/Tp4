@@ -20,9 +20,9 @@ public class Colegio extends javax.swing.JFrame {
      * Creates new form Colegio
      */
     public Colegio() {
-        initComponents();        
+        initComponents();
     }
-    
+
     public static final HashSet<Alumno> SET_ALUMNOS = new java.util.HashSet<>();
     public static final HashSet<Materia> SET_MATERIAS = new java.util.HashSet<>();
 
@@ -82,6 +82,11 @@ public class Colegio extends javax.swing.JFrame {
         barMainMenu.add(mnuAlumno);
 
         mnuMateria.setText("Materia");
+        mnuMateria.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnuMateriaActionPerformed(evt);
+            }
+        });
 
         mniAgregarMateria.setText("Agregar Materia");
         mniAgregarMateria.addActionListener(new java.awt.event.ActionListener() {
@@ -92,6 +97,11 @@ public class Colegio extends javax.swing.JFrame {
         mnuMateria.add(mniAgregarMateria);
 
         mniListarMaterias.setText("Lista de materias");
+        mniListarMaterias.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniListarMateriasActionPerformed(evt);
+            }
+        });
         mnuMateria.add(mniListarMaterias);
 
         barMainMenu.add(mnuMateria);
@@ -151,24 +161,24 @@ public class Colegio extends javax.swing.JFrame {
 
     private void mniInscripcionMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniInscripcionMateriaActionPerformed
         // TODO add your handling code here:
-      FormularioInscripcionMateria inscripcion =
-        new FormularioInscripcionMateria(
-            SET_ALUMNOS,
-            SET_MATERIAS
-        );
-    abrirYCentrar(inscripcion);
+        FormularioInscripcionMateria inscripcion
+                = new FormularioInscripcionMateria(
+                        SET_ALUMNOS,
+                        SET_MATERIAS
+                );
+        abrirYCentrar(inscripcion);
     }//GEN-LAST:event_mniInscripcionMateriaActionPerformed
 
     private void mniSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSalirActionPerformed
         // TODO add your handling code here:
         int resp = javax.swing.JOptionPane.showConfirmDialog(
-        this,
-        "¿Seguro que quiere salir?",
-        "Salir",
-        javax.swing.JOptionPane.YES_NO_OPTION,
-        javax.swing.JOptionPane.QUESTION_MESSAGE
+                this,
+                "¿Seguro que quiere salir?",
+                "Salir",
+                javax.swing.JOptionPane.YES_NO_OPTION,
+                javax.swing.JOptionPane.QUESTION_MESSAGE
         );
-        
+
         if (resp == javax.swing.JOptionPane.YES_OPTION) {
             dispose();
         }
@@ -180,6 +190,16 @@ public class Colegio extends javax.swing.JFrame {
         abrirYCentrar(mostrarAlumnos);
     }//GEN-LAST:event_mniListarAlumnosActionPerformed
 
+    private void mnuMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMateriaActionPerformed
+      
+    }//GEN-LAST:event_mnuMateriaActionPerformed
+
+    private void mniListarMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListarMateriasActionPerformed
+          ListadoMaterias ventana = new ListadoMaterias(Colegio.SET_MATERIAS);
+        ventana.setVisible(true);
+        ventana.setLocationRelativeTo(this);
+    }//GEN-LAST:event_mniListarMateriasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -189,15 +209,18 @@ public class Colegio extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
-        
+
         Materia web2 = new Materia(1, "Web 2", 2);
         Materia mat1 = new Materia(2, "Matemáticas", 1);
         Materia lab1 = new Materia(3, "Laboratorio 1", 1);
-        SET_MATERIAS.add(web2); SET_MATERIAS.add(mat1); SET_MATERIAS.add(lab1);
+        SET_MATERIAS.add(web2);
+        SET_MATERIAS.add(mat1);
+        SET_MATERIAS.add(lab1);
 
         Alumno lopez = new Alumno(1001, "López", "Martin");
         Alumno martinez = new Alumno(1002, "Martínez", "Brenda");
-        SET_ALUMNOS.add(lopez); SET_ALUMNOS.add(martinez);
+        SET_ALUMNOS.add(lopez);
+        SET_ALUMNOS.add(martinez);
 
         lopez.agregarMateria(web2);
         lopez.agregarMateria(mat1);
@@ -207,8 +230,7 @@ public class Colegio extends javax.swing.JFrame {
         martinez.agregarMateria(mat1);
         martinez.agregarMateria(lab1);
         martinez.agregarMateria(lab1);
-        
-        
+
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -226,7 +248,7 @@ public class Colegio extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Colegio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -234,7 +256,7 @@ public class Colegio extends javax.swing.JFrame {
             }
         });
     }
-    
+
     private void abrirYCentrar(JInternalFrame frame) {
         escritorio.add(frame);
         frame.setVisible(true);
