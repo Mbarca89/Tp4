@@ -1,9 +1,6 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package tp4.views;
 
+import java.util.HashSet;
 import java.util.Set;
 import javax.swing.table.DefaultTableModel;
 
@@ -11,61 +8,49 @@ import tp4.entity.Materia;
 
 public class ListadoMaterias extends javax.swing.JFrame {
 
- 
-    
-    
-    public ListadoMaterias() {
+    private final HashSet<Materia> materias;
+
+    public ListadoMaterias(HashSet<Materia> materias) {
+        this.materias = materias;
         initComponents();
-        cargarMaterias();
-         initComponents();
+        configurarTabla();
+        cargarTabla();
     }
-     private void configurarTabla() {
-        DefaultTableModel modelo = new DefaultTableModel(
-            new Object [][] {},
-            new String [] {
-                "Código de Materia", "Nombre de Materia", "Año al que pertenece"
-            }
+
+    private void configurarTabla() {
+        DefaultTableModel model = new DefaultTableModel(
+                new Object[]{"CodigoDeMateria", "NombreDeMateria", "AnioDeMateria"}, 0
         ) {
-            Class[] types = new Class [] {
-                java.lang.Integer.class, java.lang.String.class, java.lang.Integer.class
-            };
-
             @Override
-            public Class getColumnClass(int columnIndex) {
-                return types[columnIndex];
-            }
-
-            @Override
-            public boolean isCellEditable(int row, int column) {
-                return false; 
+            public boolean isCellEditable(int row, int col) {
+                return false;
             }
         };
-
-        jtmaterias.setModel(modelo);
+        jtmaterias.setModel(model);
+        jtmaterias.setAutoCreateRowSorter(true);
     }
-    
-private void cargarMaterias() {
-   
-    DefaultTableModel modelo = (DefaultTableModel) jtmaterias.getModel();
-    modelo.setRowCount(0);
 
-Set<Materia> materias=Colegio.SET_MATERIAS;
-    for (Materia m : materias) {
-        modelo.addRow(new Object[]{
-            m.getIdMateria(),
-            m.getNombre(),
-            m.getAnio()
-        });
+    private void cargarTabla() {
+        DefaultTableModel model = (DefaultTableModel) jtmaterias.getModel();
+
+        java.util.List<Materia> lista = new java.util.ArrayList<>(materias);
+
+        lista.sort(java.util.Comparator.comparing(
+                Materia::getNombre,
+                String.CASE_INSENSITIVE_ORDER
+        ));
+
+        model.setRowCount(0);
+
+        for (Materia a : lista) {
+            model.addRow(new Object[]{
+                a.getIdMateria(),
+                a.getNombre(),
+                a.getAnio(),});
+        }
     }
-}
-
- 
-    
 
 
-       
-
-    
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
@@ -110,40 +95,7 @@ Set<Materia> materias=Colegio.SET_MATERIAS;
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-     
 
-
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ListadoMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ListadoMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ListadoMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ListadoMaterias.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ListadoMaterias().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
