@@ -113,4 +113,8 @@ public class MostrarAlumnos extends javax.swing.JInternalFrame {
     private javax.swing.JScrollPane srcListaAlumnos;
     private javax.swing.JTable tblAlumnos;
     // End of variables declaration//GEN-END:variables
+
+    void setLocationRelativeTo(Colegio aThis) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
 }

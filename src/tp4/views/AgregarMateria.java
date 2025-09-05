@@ -9,15 +9,15 @@ import java.util.HashSet;
 import tp4.entity.Materia;
 
 /**
- 
+ *
  * @author Mauricio
  */
 public class AgregarMateria extends javax.swing.JInternalFrame {
 
     private final HashSet<Materia> materias;
-    
+
     /**
-      Creates new form AgregarMateria
+     * Creates new form AgregarMateria
      */
     public AgregarMateria(HashSet<Materia> materias) {
         this.materias = materias;
@@ -138,10 +138,13 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
 
     private void btnAgregarMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarMateriaActionPerformed
         // TODO add your handling code here:
+        
+        //Asigno el valor de los txt a las variables
         String codStr = varCodigoMateria.getText().trim();
         String nombre = varNombreMateria.getText().trim();
         String anioStr = varAnioMateria.getText().trim();
 
+        //Controlo que no haya campos vacios
         if (codStr.isEmpty() || nombre.isEmpty() || anioStr.isEmpty()) {
             javax.swing.JOptionPane.showMessageDialog(
                     this,
@@ -151,7 +154,8 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
             );
             return;
         }
-
+        
+        //Paso las variables string a enteros (No hace falta)
         int codigo, anio;
         try {
             codigo = Integer.parseInt(codStr);
@@ -167,7 +171,7 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
             );
             return;
         }
-
+        //Controlo año que no sea negativo
         try {
             anio = Integer.parseInt(anioStr);
             if (anio <= 0) {
@@ -182,11 +186,11 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
             );
             return;
         }
-
+        //Creo la materia
         Materia materia = new Materia(codigo, nombre, anio);
-
+        
         boolean agregada = materias.add(materia);
-
+        
         if (agregada) {
             javax.swing.JOptionPane.showMessageDialog(
                     this,
@@ -206,6 +210,7 @@ public class AgregarMateria extends javax.swing.JInternalFrame {
                     javax.swing.JOptionPane.WARNING_MESSAGE
             );
         }
+
     }//GEN-LAST:event_btnAgregarMateriaActionPerformed
 
 

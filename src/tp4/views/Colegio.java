@@ -191,11 +191,11 @@ public class Colegio extends javax.swing.JFrame {
     }//GEN-LAST:event_mniListarAlumnosActionPerformed
 
     private void mnuMateriaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnuMateriaActionPerformed
-      
+
     }//GEN-LAST:event_mnuMateriaActionPerformed
 
     private void mniListarMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniListarMateriasActionPerformed
-          ListadoMaterias ventana = new ListadoMaterias(Colegio.SET_MATERIAS);
+        ListadoMaterias ventana = new ListadoMaterias(Colegio.SET_MATERIAS);
         ventana.setVisible(true);
         ventana.setLocationRelativeTo(this);
     }//GEN-LAST:event_mniListarMateriasActionPerformed
