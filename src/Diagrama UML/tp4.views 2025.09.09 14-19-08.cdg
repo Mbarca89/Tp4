@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="tp4.views">
+  <ClassDiagramComponents>
+    <Class name="AgregarAlumno" package="tp4.views" visibility="public" xPosition="2.0" yPosition="412.0">
+      <Fields>
+        <Field name="alumnos" type="HashSet&lt;Alumno&gt;" visibility="private" isFinal="true"/>
+        <Field name="btnAgregar" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnSalir" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="varApellido" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="varLegajo" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="varNombre" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="HashSet&lt;Alumno&gt;" name="alumnos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="btnSalirActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnAgregarActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="AgregarMateria" package="tp4.views" visibility="public" xPosition="2.0" yPosition="20.0">
+      <Fields>
+        <Field name="materias" type="HashSet&lt;Materia&gt;" visibility="private" isFinal="true"/>
+        <Field name="btnAgregarMateria" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnSalir" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel4" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="varAnioMateria" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="varCodigoMateria" type="javax.swing.JTextField" visibility="private"/>
+        <Field name="varNombreMateria" type="javax.swing.JTextField" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="HashSet&lt;Materia&gt;" name="materias"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="btnSalirActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="varNombreMateriaActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnAgregarMateriaActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Colegio" package="tp4.views" visibility="public" xPosition="709.0" yPosition="20.0">
+      <Fields>
+        <Field name="SET_ALUMNOS" type="HashSet&lt;Alumno&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="SET_MATERIAS" type="HashSet&lt;Materia&gt;" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="barMainMenu" type="javax.swing.JMenuBar" visibility="private"/>
+        <Field name="escritorio" type="javax.swing.JDesktopPane" visibility="private"/>
+        <Field name="mniAgregarAlumno" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="mniAgregarMateria" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="mniInscripcionMateria" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="mniListarAlumnos" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="mniListarMaterias" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="mniSalir" type="javax.swing.JMenuItem" visibility="private"/>
+        <Field name="mnuAlumno" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="mnuMateria" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="mnuRegistro" type="javax.swing.JMenu" visibility="private"/>
+        <Field name="mnuSalir" type="javax.swing.JMenu" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="mniAgregarAlumnoActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="mniAgregarMateriaActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="mniInscripcionMateriaActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="mniSalirActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="mniListarAlumnosActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="mnuMateriaActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="mniListarMateriasActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String" name="args"/>
+        </Method>
+        <Method name="abrirYCentrar" returnType="void" visibility="private">
+          <Argument type="JInternalFrame" name="frame"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="FormularioInscripcionMateria" package="tp4.views" visibility="public" xPosition="2.0" yPosition="784.0">
+      <Fields>
+        <Field name="alumnos" type="HashSet&lt;Alumno&gt;" visibility="private"/>
+        <Field name="materias" type="HashSet&lt;Materia&gt;" visibility="private"/>
+        <Field name="CBoxAlumnos" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="CboxMateria" type="javax.swing.JComboBox&lt;String&gt;" visibility="private"/>
+        <Field name="btnInscribir" type="javax.swing.JButton" visibility="private"/>
+        <Field name="btnSalir" type="javax.swing.JButton" visibility="private"/>
+        <Field name="jLabel1" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel2" type="javax.swing.JLabel" visibility="private"/>
+        <Field name="jLabel3" type="javax.swing.JLabel" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="HashSet&lt;Alumno&gt;" name="alumnos"/>
+          <Argument type="HashSet&lt;Materia&gt;" name="materias"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="cargarMateriasEnCombo" returnType="void" visibility="private"/>
+        <Method name="cargarAlumnosEnCombo" returnType="void" visibility="private"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="CboxMateriaActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="CBoxAlumnosActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnSalirActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+        <Method name="btnInscribirActionPerformed" returnType="void" visibility="private">
+          <Argument type="java.awt.event.ActionEvent" name="evt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MostrarAlumnos" package="tp4.views" visibility="public" xPosition="1449.0" yPosition="20.0">
+      <Fields>
+        <Field name="alumnos" type="HashSet&lt;Alumno&gt;" visibility="private" isFinal="true"/>
+        <Field name="srcListaAlumnos" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="tblAlumnos" type="javax.swing.JTable" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="HashSet&lt;Alumno&gt;" name="alumnos"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+        <Method name="configurarTabla" returnType="void" visibility="private"/>
+        <Method name="cargarTabla" returnType="void" visibility="private"/>
+        <Method name="setLocationRelativeTo" returnType="void" visibility="package">
+          <Argument type="Colegio" name="aThis"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MostrarMaterias" package="tp4.views" visibility="public" xPosition="2.0" yPosition="1232.0">
+      <Fields>
+        <Field name="materias" type="HashSet&lt;Materia&gt;" visibility="private" isFinal="true"/>
+        <Field name="jScrollPane1" type="javax.swing.JScrollPane" visibility="private"/>
+        <Field name="jtmaterias" type="javax.swing.JTable" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="HashSet&lt;Materia&gt;" name="materias"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="configurarTabla" returnType="void" visibility="private"/>
+        <Method name="cargarTabla" returnType="void" visibility="private"/>
+        <Method name="initComponents" returnType="// &lt;editor-fold defaultstate=&quot;collapsed&quot; desc=&quot;Generated Code&quot;&gt;//GEN-BEGIN:initComponents void" visibility="private"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="tp4.views.MostrarAlumnos" target="tp4.views.Colegio" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
